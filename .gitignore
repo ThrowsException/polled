@@ -11,6 +11,10 @@ build
 .env.test.local
 .env.production.local
 
+# node
+package-lock.json
+.next
+
 # python
 .python-version
 env
