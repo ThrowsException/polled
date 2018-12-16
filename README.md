@@ -4,11 +4,9 @@ A simple bring-your-own-backend form generation tool. Outputs standard HTML that
 
 ## Getting started
 
-React razzle application
-
-### react
+next.js application
 
 ```
-cd frontend
-npm start # runs on port 3000
+npm i
+npm run dev # runs on port 3000
 ```

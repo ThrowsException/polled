@@ -6,11 +6,5 @@ npm-debug.log*
 coverage
 node_modules
 build
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# python
-.python-version
-env
+.next
+package-lock.json
