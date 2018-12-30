@@ -48,7 +48,7 @@ class Home extends React.Component {
       <Landing>
         <Container>
           <Hero>
-            <HeroTitle>Build and serve a form in seconds.</HeroTitle>
+            <HeroTitle>Build and serve forms in seconds.</HeroTitle>
             <HeroSubtitle>
               Get started now. Create your form and then hit publish.
             </HeroSubtitle>
