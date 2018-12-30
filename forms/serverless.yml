@@ -1,0 +1,41 @@
+# serverless.yml
+
+service: forms
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          method: GET
+          path: /form/{customer}
+          resp: json
+          request:
+            parameters:
+              customer: true
+      - http:
+          method: GET
+          path: /form/{customer}/{name}
+          resp: json
+          request:
+            parameters:
+              customer: true
+              name: true
+      - http:
+          method: POST
+          path: /form
+          resp: json
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 4000
