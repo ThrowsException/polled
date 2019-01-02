@@ -1,5 +1,6 @@
 {
-  "form": "PGZvcm0+CiAgPGxhYmVsPlRlc3Q8L2xhYmVsPgogIDxpbnB1dCAvPgo8L2Zvcm0+",
+  "form":
+    "PGZvcm0+CiAgPGxhYmVsIGZvciJuYW1lIj5OYW1lPC9sYWJlbD4KICA8aW5wdXQgaWQ9Im5hbWUiIG5hbWU9Im5hbWUiIHR5cGU9InRleHQiIC8+CiAgPGlucHV0IHR5cGU9InN1Ym1pdCIgLz4KPC9mb3JtPg==",
   "name": "test",
   "customer": "newcustomer"
 }

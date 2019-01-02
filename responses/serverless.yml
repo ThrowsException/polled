@@ -13,7 +13,11 @@ functions:
     handler: index.handler
     events:
       - http:
-          method: GET, POST
+          method: GET
+          path: /response
+          resp: json
+      - http:
+          method: POST
           path: /response
           resp: json
       - http: 'ANY {proxy+}'
@@ -30,4 +34,4 @@ resources:
 
 custom:
   serverless-offline:
-    port: 4000
+    port: 4001

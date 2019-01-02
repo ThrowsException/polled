@@ -29,8 +29,12 @@ app.get("/response", async (req, res) => {
 app.post("/response", async (req, res) => {
   await client.connect();
 
+  let data = req.body.data;
+  if (req.headers["content-type"] == "application/x-www-form-urlencoded") {
+    data = req.body;
+  }
   const text = "INSERT INTO responses(data) VALUES($1) RETURNING *";
-  const values = [req.body.data];
+  const values = [data];
 
   try {
     const result = await client.query(text, values);

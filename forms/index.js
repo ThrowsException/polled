@@ -2,6 +2,7 @@ const AWS = require("aws-sdk");
 const serverless = require("serverless-http");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cheerio = require("cheerio");
 
 const app = express();
 
@@ -54,10 +55,16 @@ app.get("/form/:customer/:name", async (req, res) => {
 
 app.post("/form", async (req, res) => {
   const s3 = new AWS.S3({ endpoint: "http://localhost:4572/" });
-  const { form, name, customer } = req.body;
+  const { name, customer } = req.body;
+  let form = Buffer.from(req.body.form, "base64").toString("utf8");
+  const $ = cheerio.load(form);
+
+  $("form")
+    .attr("method", "post")
+    .attr("action", "http://localhost:4001/response");
 
   const params = {
-    Body: Buffer.from(form, "base64"),
+    Body: $.html(),
     Bucket: `polled`,
     Key: `${customer}/${name}.html`,
     ContentType: "text/html"
