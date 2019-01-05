@@ -3,6 +3,9 @@ logs
 npm-debug.log*
 .DS_Store
 
+# serverless
+.serverless/
+
 coverage
 node_modules
 build
