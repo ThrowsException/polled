@@ -9,13 +9,15 @@ Form API adds html documents to a customer bucket in S3 that can be served and e
 serverless framework
 docker
 docker-compose
+
+# Useful
+
 aws cli
 
 ```
-docker-compose up -d
-aws --endpoint-url=http://localhost:4572 s3 mb s3://polled
 npm install -g serverless
 npm i
+./bootstrap
 npm start # runs the offline serverless app
 ```
 
