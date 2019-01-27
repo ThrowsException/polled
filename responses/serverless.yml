@@ -4,7 +4,7 @@ service: responses
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   stage: dev
   region: us-east-1
 
@@ -16,11 +16,12 @@ functions:
           method: GET
           path: /response
           resp: json
+          authorizer: aws_iam
       - http:
           method: POST
           path: /response
           resp: json
-      - http: 'ANY {proxy+}'
+          authorizer: aws_iam
 
 plugins:
   - serverless-offline
