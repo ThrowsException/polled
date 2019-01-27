@@ -6,8 +6,6 @@ import Landing from "../layouts/landing";
 import { Container, Row, Col } from "react-awesome-styled-grid";
 import Amplify, { Auth } from "aws-amplify";
 
-console.log(config);
-
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,

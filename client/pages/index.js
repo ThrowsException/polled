@@ -7,6 +7,32 @@ import { Element } from "../components/element";
 import { Form, FormPreview } from "../components/form";
 import Landing from "../layouts/landing";
 import { Container, Row, Col } from "react-awesome-styled-grid";
+import { withAuthenticator } from "aws-amplify-react";
+import { Authenticator } from "aws-amplify-react/dist/Auth";
+import config from "../config";
+import Amplify from "aws-amplify";
+
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: config.cognito.REGION,
+    userPoolId: config.cognito.USER_POOL_ID,
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+  }
+  // Storage: {
+  //   region: config.s3.REGION,
+  //   bucket: config.s3.BUCKET,
+  // },
+  // API: {
+  //   endpoints: [
+  //     {
+  //       name: "notes",
+  //       endpoint: config.apiGateway.URL,
+  //       region: config.apiGateway.REGION
+  //     }
+  //   ]
+  // }
+});
 
 const ElementsContainer = styled.div`
   flex: 1;
@@ -79,4 +105,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withAuthenticator(Home);
